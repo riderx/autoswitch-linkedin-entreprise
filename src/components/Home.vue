@@ -111,6 +111,7 @@ export default {
   },
   data() {
     return {
+      queryString: "",
       showInfoCompany: false,
       showInfoPost: false,
       companyUrl: "",
@@ -118,8 +119,9 @@ export default {
     }
   },
   mounted() {
-  const companyUrl = localStorage.getItem('companyUrl');
-  this.companyUrl = companyUrl ? companyUrl : "";
+    this.parseQuery(window.location.search);
+    const companyUrl = localStorage.getItem('companyUrl');
+    this.companyUrl = companyUrl ? companyUrl : "";
   },
   computed: {
     companyName() {
@@ -131,11 +133,23 @@ export default {
     },
   },
   methods: {
+    parseQuery(queryString) {
+      if (!queryString) return;
+      const query = {};
+      const pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&');
+      for (let i = 0; i < pairs.length; i++) {
+          const pair = pairs[i].split('=');
+          query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+      }
+      if (query.ref && query.post) {
+        this.companyUrl = query.ref;
+        this.postUrl = query.post;
+      }
+    },
     createLink() {
-      console.log('createLink', this.companyUrl, this.companyName, this.postUrl, this.postWithCompany);
       localStorage.setItem('companyUrl', this.companyUrl);
-      window.location.search = `?ref=${this.companyUrl}`; // to allow plausible stats by company
       window.open(this.postWithCompany, '_blank');
+      window.open(`${window.location.href}?ref=${this.companyUrl}&post=${this.postUrl}`, "_self"); // to allow plausible stats by company
     }
   },
 }
