@@ -19,10 +19,17 @@
                 Pour trouver l'URL admin de votre entreprise :
               </h3>
               <div class="mt-2 text-sm text-yellow-700">
-                <p>
-                  * Cliquez sur votre avatar en haut a gauche, puis le nom de l'entreprise voulu dans le menu.
-                  * Copiez l'URL en haut dans le navigateur.
-                </p>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>
+                    Cliquez sur votre avatar en haut a gauche, puis le nom de l'entreprise voulu dans le menu.
+                  </li>
+                  <li>
+                    Copiez l'URL en haut dans le navigateur.
+                  </li>
+                  <li>
+                    Ce lien seras sauvegarder dans votre navigateur entre chaque visite
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -34,7 +41,7 @@
               <InformationCircleIcon class="h-5 w-5 text-yellow-400 inline" aria-hidden="true" @click="showInfoCompany = !showInfoCompany" />
             </label>
             <div class="mt-1">
-              <input id="companyUrl" name="companyUrl" v-model="companyUrl" type="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+              <input id="companyUrl" name="companyUrl" v-model="companyUrl" autocomplete="off" type="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
             </div>
           </div>
 
@@ -49,9 +56,14 @@
                     Pour trouver l'URL d'un post :
                   </h3>
                   <div class="mt-2 text-sm text-yellow-700">
-                    <p>
-                      Allez sur les 3 petits points en haut à droite d'un post et cliquez sur "copier le lien vers le post".
-                    </p>
+                    <ul class="list-disc pl-5 space-y-1">
+                      <li>
+                        Allez sur les 3 petits points en haut à droite d'un post et cliquez sur "copier le lien vers le post".
+                      </li>
+                      <li>
+                        Your password must include at least one pro wrestling finishing move
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -61,7 +73,7 @@
               <InformationCircleIcon class="h-5 w-5 text-yellow-400 inline" aria-hidden="true" @click="showInfoPost = !showInfoPost" />
             </label>
             <div class="mt-1">
-              <input id="postUrl" name="postUrl" v-model="postUrl" type="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+              <input id="postUrl" name="postUrl" autocomplete="off" v-model="postUrl" type="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
             </div>
           </div>
 
