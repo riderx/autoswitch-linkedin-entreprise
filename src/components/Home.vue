@@ -9,10 +9,29 @@
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div class="rounded-md bg-yellow-50 p-4" v-if="showInfoCompany">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <InformationCircleIcon class="h-5 w-5 text-yellow-400 inline" aria-hidden="true" />
+            </div>
+            <div class="ml-3">
+              <h3 class="text-sm font-medium text-yellow-800">
+                Pour trouver l'URL admin de votre entreprise :
+              </h3>
+              <div class="mt-2 text-sm text-yellow-700">
+                <p>
+                  * Cliquez sur votre avatar en haut a gauche, puis le nom de l'entreprise voulu dans le menu.
+                  * Copiez l'URL en haut dans le navigateur.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="space-y-6">
           <div>
             <label for="companyUrl" class="block text-sm font-medium text-gray-700">
-              URL de votre entreprise
+              URL Linkedin admin de votre entreprise
+              <InformationCircleIcon class="h-5 w-5 text-yellow-400 inline" aria-hidden="true" @click="showInfoCompany = !showInfoCompany" />
             </label>
             <div class="mt-1">
               <input id="companyUrl" name="companyUrl" v-model="companyUrl" type="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
@@ -20,8 +39,26 @@
           </div>
 
           <div>
+            <div class="rounded-md bg-yellow-50 p-4" v-if="showInfoPost">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <InformationCircleIcon class="h-5 w-5 text-yellow-400 inline" aria-hidden="true" />
+                </div>
+                <div class="ml-3">
+                  <h3 class="text-sm font-medium text-yellow-800">
+                    Pour trouver l'URL d'un post :
+                  </h3>
+                  <div class="mt-2 text-sm text-yellow-700">
+                    <p>
+                      Allez sur les 3 petits points en haut à droite d'un post et cliquez sur "copier le lien vers le post".
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
             <label for="postUrl" class="block text-sm font-medium text-gray-700">
-              URL du post cible
+              URL du post à commenter
+              <InformationCircleIcon class="h-5 w-5 text-yellow-400 inline" aria-hidden="true" @click="showInfoPost = !showInfoPost" />
             </label>
             <div class="mt-1">
               <input id="postUrl" name="postUrl" v-model="postUrl" type="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
@@ -52,11 +89,18 @@
 </template>
 
 <script>
+import { InformationCircleIcon } from '@heroicons/vue/solid'
+
 const companyRegex = /company\/(?<company>.*?)\//
 export default {
-  name: 'HelloWorld',
+  name: 'Home',
+    components: {
+    InformationCircleIcon
+  },
   data() {
     return {
+      showInfoCompany: false,
+      showInfoPost: false,
       companyUrl: "",
       postUrl: "",
     }
