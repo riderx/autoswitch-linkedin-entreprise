@@ -134,6 +134,7 @@ export default {
     createLink() {
       console.log('createLink', this.companyUrl, this.companyName, this.postUrl, this.postWithCompany);
       localStorage.setItem('companyUrl', this.companyUrl);
+      window.location.search = `?ref=${this.companyName}`; // to allow plausible stats by company
       window.open(this.postWithCompany, '_blank');
     }
   },
