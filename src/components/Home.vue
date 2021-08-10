@@ -149,7 +149,7 @@ export default {
     createLink() {
       localStorage.setItem('companyUrl', this.companyUrl);
       window.open(this.postWithCompany, '_blank');
-      window.open(`${window.location.href}?ref=${this.companyUrl}&post=${this.postUrl}`, "_self"); // to allow plausible stats by company
+      window.open(`${window.location.href}?ref=${this.companyUrl}&post=${this.postUrl}`, "_self"); // to allow plausible count stats by company url
     }
   },
 }
