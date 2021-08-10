@@ -32,7 +32,7 @@
 
             <div class="text-sm">
               <a href="https://msha.ke/martindonadieu" target="blank" class="font-medium text-indigo-600 hover:text-indigo-500">
-                par Martin donadieu INDIE MAKER
+                par Martin donadieu, INDIE MAKER
               </a>
             </div>
           </div>
@@ -45,6 +45,9 @@
         </div>
       </div>
     </div>
+      <p class="mt-5 mx-auto text-center text-sm text-gray-600">
+        <iframe class="mx-auto" src="https://ghbtns.com/github-btn.html?user=riderx&repo=autoswitch-linkedin-entreprise&type=star&count=true&size=large" frameborder="0" scrolling="0" width="120" height="30" title="GitHub"></iframe>
+      </p>
   </div>
 </template>
 
